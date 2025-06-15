@@ -63,6 +63,7 @@ def reset_minecraft_world(mc, width=48):
     sleep(1)
 
 def barrier_minecraft_world(mc, width=48):
+    mc.postToChat("Barriering your field")
     mc.setBlocks(-width, param.Y_SEA + 1, -width, width, AXIS_TOP, -width, block.BARRIER)
     sleep(2)
     mc.setBlocks(width, param.Y_SEA + 1, -width, width, AXIS_TOP, width, block.BARRIER)
@@ -86,3 +87,4 @@ if __name__ == "__main__":
 
     reset_minecraft_world(mc)
     draw_XYZ_axis(mc, wait=0.05)
+    barrier_minecraft_world(mc)
