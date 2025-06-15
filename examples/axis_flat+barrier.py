@@ -64,14 +64,22 @@ def reset_minecraft_world(mc, width=48):
 
 def barrier_minecraft_world(mc, width=48):
     mc.postToChat("Barriering your field")
-    mc.setBlocks(-width, param.Y_SEA + 1, -width, width, AXIS_TOP, -width, block.BARRIER)
+    mc.setBlocks(-width, param.Y_SEA + 1, -width, width, AXIS_TOP-1, -width, block.BARRIER)
     sleep(2)
-    mc.setBlocks(width, param.Y_SEA + 1, -width, width, AXIS_TOP, width, block.BARRIER)
+    mc.setBlocks(-width, AXIS_TOP-1, -width, width, AXIS_TOP-1, -width, block.SEA_LANTERN)
+    sleep(1)
+    mc.setBlocks(width, param.Y_SEA + 1, -width, width, AXIS_TOP-1, width, block.BARRIER)
     sleep(2)
-    mc.setBlocks(width, param.Y_SEA + 1, width, -width, AXIS_TOP, width, block.BARRIER)
+    mc.setBlocks(width, AXIS_TOP-1, -width, width, AXIS_TOP-1, width, block.SEA_LANTERN)
+    sleep(1)
+    mc.setBlocks(width, param.Y_SEA + 1, width, -width, AXIS_TOP-1, width, block.BARRIER)
     sleep(2)
-    mc.setBlocks(-width, param.Y_SEA + 1, width, -width, AXIS_TOP, -width, block.BARRIER)
+    mc.setBlocks(width, AXIS_TOP-1, width, -width, AXIS_TOP-1, width, block.SEA_LANTERN)
+    sleep(1)
+    mc.setBlocks(-width, param.Y_SEA + 1, width, -width, AXIS_TOP-1, -width, block.BARRIER)
     sleep(2)
+    mc.setBlocks(-width, AXIS_TOP-1, width, -width, AXIS_TOP-1, -width, block.SEA_LANTERN)
+    sleep(1)
 
 
 if __name__ == "__main__":
