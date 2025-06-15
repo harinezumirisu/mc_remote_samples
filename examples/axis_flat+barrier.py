@@ -14,25 +14,28 @@ AXIS_BOTTOM = 63  # y: 63 .. 96 .. 127
 AXIS_BLOCK_X = block.DIAMOND_BLOCK
 AXIS_BLOCK_Y = block.SEA_LANTERN
 AXIS_BLOCK_Z = block.GOLD_BLOCK
+AXIS_BLOCK_X1 = block.SEA_LANTERN
+AXIS_BLOCK_Y1 = block.SEA_LANTERN
+AXIS_BLOCK_Z1 = block.SEA_LANTERN
 AXIS_BLOCK_TOP = block.GLOWSTONE
 
 
 def draw_XYZ_axis(mc, wait=0.125):
     mc.postToChat("Drawing x-axis from negative to positive region")
     for x in range(-AXIS_WIDTH, AXIS_WIDTH + 1):
-        block_type = AXIS_BLOCK_X if x >= 0 else (block.AIR if x % 2 == 0 else AXIS_BLOCK_X)
+        block_type = AXIS_BLOCK_X1 if x >= 0 else (block.AIR if x % 2 == 0 else AXIS_BLOCK_X1)
         mc.setBlock(x, AXIS_Y_V_ORG, 0, block_type)
         sleep(wait)
 
     mc.postToChat("Drawing y-axis from bottom to top")
     for y in range(AXIS_BOTTOM, AXIS_TOP + 1):
-        block_type = AXIS_BLOCK_Y if y >= AXIS_Y_V_ORG else (block.AIR if y % 2 == 0 else AXIS_BLOCK_Y)
+        block_type = AXIS_BLOCK_Y1 if y >= AXIS_Y_V_ORG else (block.AIR if y % 2 == 0 else AXIS_BLOCK_Y1)
         mc.setBlock(0, y, 0, block_type)
         sleep(wait)
 
     mc.postToChat("Drawing z-axis from negative to positive region")
     for z in range(-AXIS_WIDTH, AXIS_WIDTH + 1):
-        block_type = AXIS_BLOCK_Z if z >= 0 else (block.AIR if z % 2 == 0 else AXIS_BLOCK_Z)
+        block_type = AXIS_BLOCK_Z1 if z >= 0 else (block.AIR if z % 2 == 0 else AXIS_BLOCK_Z1)
         mc.setBlock(0, AXIS_Y_V_ORG, z, block_type)
         sleep(wait)
 
