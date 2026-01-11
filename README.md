@@ -1,4 +1,4 @@
-# minecraft_remote_samples / Naohiro2g
+# practice of mc_remote_samples from by dorahari.131
 
 Starting point for writing Minecraft Remote user code in Python with its API
 
