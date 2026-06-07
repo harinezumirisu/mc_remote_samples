@@ -16,9 +16,8 @@ def setStepX(mc=mc, x=0, z=0, y=param.Y_SEA + 1, sizez=3, steps=3, inclination=1
         high = steps * inclination
         sizez -= 1
         size = sizez * Changez
-        while high > 0:
-            ny = inclination
-            nx = 1 // inclination
+        ny = inclination
+        while high > 0:            
             mc.setBlocks(x, y, z, x, y - inclination, z + size, blockTypeId)
             x += Changex
             high -= ny
@@ -28,11 +27,10 @@ def setStepX(mc=mc, x=0, z=0, y=param.Y_SEA + 1, sizez=3, steps=3, inclination=1
         high = steps
         sizez -= 1
         size = sizez * Changez
+        nx = 1 / inclination * Changex
         while high > 0:
-            ny = inclination
-            nx = 1 // inclination
-            mc.setBlocks(x, y, z, x + (nx * Changex), y, z + size, blockTypeId)
-            x += (Changex * nx)
+            mc.setBlocks(x, y, z, x + nx, y, z + size, blockTypeId)
+            x += nx
             high -= 1
             y += 1
 
@@ -40,13 +38,11 @@ def setStepX(mc=mc, x=0, z=0, y=param.Y_SEA + 1, sizez=3, steps=3, inclination=1
         high = steps
         sizez -= 1
         size = sizez * Changez
-        def setStep(mc=mc, x=0, z=0, y=param.Y_SEA + 1, Changex=1, size=3, high=3,  blockTypeId=block.IRON_BLOCK):
-            while high > 0:
-                mc.setBlocks(x, y, z, x, y - 1, z + size, blockTypeId)
-                x += Changex
-                high -= 1
-                y += 1
-        setStep(x, z, y, Changex, size, high,  blockTypeId)
+        while high > 0:
+            mc.setBlocks(x, y, z, x, y - 1, z + size, blockTypeId)
+            x += Changex
+            high -= 1
+            y += 1
     
     sleep(0.01)
 
@@ -57,9 +53,8 @@ def setStepZ(mc=mc, x=0, z=0, y=param.Y_SEA + 1, sizex=3, steps=3, inclination=1
         high = steps * inclination
         sizex -= 1
         size = sizex * Changex
+        ny = inclination
         while high > 0:
-            ny = inclination
-            nz = 1 // inclination
             mc.setBlocks(x, y, z, x + size, y - inclination, z, blockTypeId)
             z += Changez
             high -= ny
@@ -69,11 +64,10 @@ def setStepZ(mc=mc, x=0, z=0, y=param.Y_SEA + 1, sizex=3, steps=3, inclination=1
         high = steps
         sizex -= 1
         size = sizex * Changex
+        nz = 1 / inclination * Changex
         while high > 0:
-            ny = inclination
-            nz = 1 // inclination
-            mc.setBlocks(x, y, z + size, x, y, z + (nz * Changex), blockTypeId)
-            z += (Changez * nz)
+            mc.setBlocks(x, y, z + size, x, y, z + nz, blockTypeId)
+            z += nz
             high -= 1
             y += 1
 
@@ -93,9 +87,4 @@ def setStepZ(mc=mc, x=0, z=0, y=param.Y_SEA + 1, sizex=3, steps=3, inclination=1
 
 mc.postToChat("Drawing x-step")
 
-setStepX(mc=mc, x=25, z=-25, y=param.Y_SEA + 5, sizez=5, steps=5, inclination= 0.5, Changex=1, Changez=1, blockTypeId=block.IRON_BLOCK)
-
-setStepX(mc=mc, x=25, z=25, y=param.Y_SEA + 5, sizez=5, steps=5, inclination= 1, Changex=1, Changez=1, blockTypeId=block.IRON_BLOCK)
-
-setStepX(mc=mc, x=-25, z=-25, y=param.Y_SEA + 2, sizez=5, steps=6, inclination= 2, Changex=1, Changez=1, blockTypeId=block.IRON_BLOCK)
-
+setStepX(mc=mc, x=25, z=-25, y=param.Y_SEA + 5, sizez=5, steps=5, inclination= 1 / 3, Changex=1, Changez=1, blockTypeId=block.IRON_BLOCK)
