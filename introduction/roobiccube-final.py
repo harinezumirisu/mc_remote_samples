@@ -1,5 +1,7 @@
 from time import sleep
 
+import random
+
 import pygame
 from pygame.locals import Rect
 import sys
@@ -16,10 +18,30 @@ pygame.display.set_caption("roobic cube")
 mc = Minecraft.create(address=param.ADRS_MCR, port=param.PORT_MCR)
 mc.setPlayer(param.PLAYER_NAME, PO.x, PO.y, PO.z)
 
-def gamestart1(x=1,y=1,z=1,):
+block1=block.RED_WOOL
+screencolor1=(255,0,0)
+block2=block.ORANGE_WOOL
+screencolor2=(240,120,0)
+block3=block.YELLOW_WOOL
+screencolor3=(255,255,0)
+block4=block.BLUE_WOOL
+screencolor4=(0,0,255)
+block5=block.GREEN_WOOL
+screencolor5=(0,255,0)
+block6=block.BLACK_WOOL
+screencolor6=(0,0,0)
+block7=block.WHITE_CONCRETE
 
-    mc.setBlocks(x,y,z,x+4,y-4,z+4,block.WHITE_CONCRETE)
+colors = [block1, block2, block3, block4, block5, block6]*9
+
+pygame.init()
+
+def gamestart1(x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6):
+
+    mc.setBlocks(x,y,z,x+4,y-4,z+4,frameblock)
     mc.setBlocks(x+1,y-1,z+1,x+3,y-3,z+3,block.BARRIER)
+    mc.setBlock(x+2,y-4,z-5,block.DIAMOND_BLOCK)
+    mc.postToChat("Let's set roobic cube")
 
     #up surface
     #left,center,right
@@ -52,80 +74,149 @@ def gamestart1(x=1,y=1,z=1,):
     #center 49,50,51
     #down   52,53,54
 
-    import random
+    sleep(0.01) 
 
-    # 1. 1〜6の数字を9個ずつ入れた、合計54個のリストを作る
-    numbers = [1, 2, 3, 4, 5, 6] * 9
+    cornerblock1=[block1,block2,block3]
+    random.shuffle(cornerblock1)
+    cornerblock2=[block1,block3,block4]
+    random.shuffle(cornerblock2)
+    cornerblock3=[block1,block4,block5]
+    random.shuffle(cornerblock3)
+    cornerblock4=[block1,block5,block2]
+    random.shuffle(cornerblock4)
 
-    # 2. リストの中身をランダムにシャッフルする（トランプを切るイメージ）
-    random.shuffle(numbers)
+    cornerblock5=[block6,block4,block3]
+    random.shuffle(cornerblock5)
+    cornerblock6=[block6,block3,block2]
+    random.shuffle(cornerblock6)
+    cornerblock7=[block6,block2,block5]
+    random.shuffle(cornerblock7)
+    cornerblock8=[block6,block5,block4]
+    random.shuffle(cornerblock8)
 
-    # 3. 54個の変数（今回は辞書のキー）に順番に割り当てる
-    # 例として「var_1」から「var_54」までの変数を作ります
+    corners= [cornerblock1, cornerblock2, cornerblock3, cornerblock4, cornerblock5, cornerblock6, cornerblock7, cornerblock8]
+
+    random.shuffle(corners)
+
     variables = {}
-    for i in range(54):
-        color_name = f"color_{i+1}"       # 変数の名前（var_1, var_2...）
-        variables[color_name] = numbers[i] # シャッフルした数字を割り当て
+    for i in range(8):
+        corner_name = f"corner_{i+1}"
+        corner=corners[i]
+        variables[corner_name] = [corner[0],corner[1],corner[2]] 
     
-    color1=variables["color_1"]
-    color2=variables["color_2"]
-    color3=variables["color_3"]
-    color4=variables["color_4"]
-    color5=variables["color_5"]
-    color6=variables["color_6"]
-    color7=variables["color_7"]
-    color8=variables["color_8"]
-    color9=variables["color_9"]
+    sleep(0.01)
 
-    color10=variables["color_10"]
-    color11=variables["color_11"]
-    color12=variables["color_12"]
-    color13=variables["color_13"]
-    color14=variables["color_14"]
-    color15=variables["color_15"]
-    color16=variables["color_16"]
-    color17=variables["color_17"]
-    color18=variables["color_18"]
+    color12=variables["corner_1"][0]
+    color19=variables["corner_1"][1]
+    color7=variables["corner_1"][2]
+    color9=variables["corner_2"][0]
+    color21=variables["corner_2"][1]
+    color28=variables["corner_2"][2]
+    color34=variables["corner_3"][0]
+    color27=variables["corner_3"][1]
+    color39=variables["corner_3"][2]
+    color37=variables["corner_4"][0]
+    color25=variables["corner_4"][1]
+    color18=variables["corner_4"][2]
 
-    color19=variables["color_19"]
-    color20=variables["color_20"]
-    color21=variables["color_21"]
-    color22=variables["color_22"]
-    color23=variables["color_23"]
-    color24=variables["color_24"]
-    color25=variables["color_25"]
-    color26=variables["color_26"]
-    color27=variables["color_27"]
+    color30=variables["corner_5"][0]
+    color46=variables["corner_5"][1]
+    color3=variables["corner_5"][2]
+    color1=variables["corner_6"][0]
+    color48=variables["corner_6"][1]
+    color10=variables["corner_6"][2]
+    color16=variables["corner_7"][0]
+    color54=variables["corner_7"][1]
+    color43=variables["corner_7"][2]
+    color45=variables["corner_8"][0]
+    color52=variables["corner_8"][1]
+    color36=variables["corner_8"][2]
 
-    color28=variables["color_28"]
-    color29=variables["color_29"]
-    color30=variables["color_30"]
-    color31=variables["color_31"]
-    color32=variables["color_32"]
-    color33=variables["color_33"]
-    color34=variables["color_34"]
-    color35=variables["color_35"]
-    color36=variables["color_36"]
+    sleep(0.01) 
 
-    color37=variables["color_37"]
-    color38=variables["color_38"]
-    color39=variables["color_39"]
-    color40=variables["color_40"]
-    color41=variables["color_41"]
-    color42=variables["color_42"]
-    color43=variables["color_43"]
-    color44=variables["color_44"]
-    color45=variables["color_45"]
+    lineblock1=[block1,block2]
+    random.shuffle(lineblock1)
+    lineblock2=[block1,block3]
+    random.shuffle(lineblock2)
+    lineblock3=[block1,block4]
+    random.shuffle(lineblock3)
+    lineblock4=[block1,block5]
+    random.shuffle(lineblock4)
 
-    color46=variables["color_46"]
-    color47=variables["color_47"]
-    color48=variables["color_48"]
-    color49=variables["color_49"]
-    color50=variables["color_50"]
-    color51=variables["color_51"]
-    color52=variables["color_52"]
-    color53=variables["color_53"]
-    color54=variables["color_54"]
+    lineblock5=[block2,block3]
+    random.shuffle(lineblock5)
+    lineblock6=[block3,block4]
+    random.shuffle(lineblock6)
+    lineblock7=[block4,block5]
+    random.shuffle(lineblock7)
+    lineblock8=[block5,block2]
+    random.shuffle(lineblock8)
+    
+    lineblock9=[block6,block4]
+    random.shuffle(lineblock9)
+    lineblock10=[block6,block3]
+    random.shuffle(lineblock10)
+    lineblock11=[block6,block2]
+    random.shuffle(lineblock11)
+    lineblock12=[block6,block5]
+    random.shuffle(lineblock12)
+
+    lines= [lineblock1, lineblock2, lineblock3, lineblock4, lineblock5, lineblock6, lineblock7, lineblock8, lineblock9, lineblock10, lineblock11, lineblock12]
+
+    random.shuffle(lines)
+
+    variables = {}
+    for i in range(12):
+        line_name = f"line_{i+1}"
+        line=lines[i]
+        variables[line_name] = [line[0],line[1]] 
+
+    sleep(0.01)
+
+    color20=variables["line_1"][0]
+    color8=variables["line_1"][1]
+    color24=variables["line_2"][0]
+    color31=variables["line_2"][1]
+    color26=variables["line_3"][0]
+    color38=variables["line_3"][1]
+    color22=variables["line_4"][0]
+    color15=variables["line_4"][1]
+
+    color4=variables["line_5"][0]
+    color11=variables["line_5"][1]
+    color29=variables["line_6"][0]
+    color6=variables["line_6"][1]
+    color42=variables["line_7"][0]
+    color35=variables["line_7"][1]
+    color17=variables["line_8"][0]
+    color40=variables["line_8"][1]
+
+    color47=variables["line_9"][0]
+    color2=variables["line_9"][1]
+    color51=variables["line_10"][0]
+    color13=variables["line_10"][1]
+    color53=variables["line_11"][0]
+    color44=variables["line_11"][1]
+    color49=variables["line_12"][0]
+    color33=variables["line_12"][1]
+
+    sleep(0.01) 
+    
+    surfacecolors= [block1, block2, block3, block4, block5, block6]
+
+    random.shuffle(surfacecolors)
+
+    variables = {}
+    for i in range(6):
+        surface_name = f"surface_{i+1}"
+        variables[surface_name] = surfacecolors[i]
+
+    color5=variables["surface_1"]
+    color14=variables["surface_2"]
+    color23=variables["surface_3"]
+    color32=variables["surface_4"]
+    color41=variables["surface_5"]
+    color50=variables["surface_6"]
 
     sleep(0.01) 
 
@@ -142,15 +233,7 @@ def gamestart1(x=1,y=1,z=1,):
         return not (1 in signs and -1 in signs)      
 
     while True:
-        # 画面を塗りつぶす
         screen.fill((255, 255, 255))
-
-        screencolorred=(255,0,0)
-        screencolororange=(240,120,0)
-        screencoloryellow=(255,255,0)
-        screencolorblue=(0,0,255)
-        screencolorgreen=(0,255,0)
-        screencolorblack=(0,0,0)
 
         triangle1 = [(180, 80), (220, 10), (260, 80)]
         pygame.draw.polygon(screen, (0, 0, 0), triangle1)
@@ -182,312 +265,15 @@ def gamestart1(x=1,y=1,z=1,):
 
         sleep(0.01)
 
-        if color1==1:
-            mcblock1=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==2:
-            mcblock1=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==3:
-            mcblock1=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==4:
-            mcblock1=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==5:
-            mcblock1=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==6:
-            mcblock1=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-
-        if color2==1:
-            mcblock2=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock2)
-        elif color2==2:
-            mcblock2=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock2)
-        elif color2==3:
-            mcblock2=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock2)
-        elif color2==4:
-            mcblock2=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock2)
-        elif color2==5:
-            mcblock2=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock2)
-        elif color2==6:
-            mcblock2=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock2)
-
-        if color3==1:
-            mcblock3=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock3)
-        elif color3==2:
-            mcblock3=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock3)
-        elif color3==3:
-            mcblock3=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock3)
-        elif color3==4:
-            mcblock3=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock3)
-        elif color3==5:
-            mcblock3=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock3)
-        elif color3==6:
-            mcblock3=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock3)
-
-        if color4==1:
-            mcblock4=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock4)
-        elif color4==2:
-            mcblock4=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock4)
-        elif color4==3:
-            mcblock4=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock4)
-        elif color4==4:
-            mcblock4=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock4)
-        elif color4==5:
-            mcblock4=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock4)
-        elif color4==6:
-            mcblock4=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock4)
-
-
-
-        if color1==1:
-            mcblock1=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==2:
-            mcblock1=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==3:
-            mcblock1=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==4:
-            mcblock1=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==5:
-            mcblock1=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==6:
-            mcblock1=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-
-        if color1==1:
-            mcblock1=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==2:
-            mcblock1=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==3:
-            mcblock1=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==4:
-            mcblock1=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==5:
-            mcblock1=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==6:
-            mcblock1=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-
-        if color1==1:
-            mcblock1=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==2:
-            mcblock1=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==3:
-            mcblock1=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==4:
-            mcblock1=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==5:
-            mcblock1=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==6:
-            mcblock1=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-
-        if color1==1:
-            mcblock1=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==2:
-            mcblock1=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==3:
-            mcblock1=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==4:
-            mcblock1=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==5:
-            mcblock1=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==6:
-            mcblock1=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-
-        if color1==1:
-            mcblock1=block.WHITEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==2:
-            mcblock1=block.ORANGEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==3:
-            mcblock1=block.YELLOWWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==4:
-            mcblock1=block.BLUEWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==5:
-            mcblock1=block.GREENWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-        elif color1==6:
-            mcblock1=block.BLACKWOOL
-            mc.setblock(x+1,y-1,z,mcblock1)
-
-        sleep(0.01)   
-
-        if color19==1:
-            screencolor19=screencolorred
-        elif color19==2:
-            screencolor19=screencolororange
-        elif color19==3:
-            screencolor19=screencoloryellow
-        elif color19==4:
-            screencolor19=screencolorblue
-        elif color19==5:
-            screencolor19=screencolorgreen
-        elif color19==6:
-            screencolor19=screencolorblack
-        pygame.draw.rect(screen, screencolor19, [180, 100, 80, 80])
-        if color20==1:
-            screencolor20=screencolorred
-        elif color20==2:
-            screencolor20=screencolororange
-        elif color20==3:
-            screencolor20=screencoloryellow
-        elif color20==4:
-            screencolor20=screencolorblue
-        elif color20==5:
-            screencolor20=screencolorgreen
-        elif color20==6:
-            screencolor20=screencolorblack
-        pygame.draw.rect(screen, screencolor20, [280, 100, 80, 80])
-        if color21==1:
-            screencolor21=screencolorred
-        elif color21==2:
-            screencolor21=screencolororange
-        elif color21==3:
-            screencolor21=screencoloryellow
-        elif color21==4:
-            screencolor21=screencolorblue
-        elif color21==5:
-            screencolor21=screencolorgreen
-        elif color21==6:
-            screencolor21=screencolorblack
-        pygame.draw.rect(screen, screencolor21, [380, 100, 80, 80])
-
-        if color22==1:
-            screencolor22=screencolorred
-        elif color22==2:
-            screencolor22=screencolororange
-        elif color22==3:
-            screencolor22=screencoloryellow
-        elif color22==4:
-            screencolor22=screencolorblue
-        elif color22==5:
-            screencolor22=screencolorgreen
-        elif color22==6:
-            screencolor22=screencolorblack
-        pygame.draw.rect(screen, screencolor22, [180, 200, 80, 80])
-        if color23==1:
-            screencolor23=screencolorred
-        elif color23==2:
-            screencolor23=screencolororange
-        elif color23==3:
-            screencolor23=screencoloryellow
-        elif color23==4:
-            screencolor23=screencolorblue
-        elif color23==5:
-            screencolor23=screencolorgreen
-        elif color23==6:
-            screencolor23=screencolorblack
-        pygame.draw.rect(screen, screencolor23, [280, 200, 80, 80])
-        if color24==1:
-            screencolor24=screencolorred
-        elif color24==2:
-            screencolor24=screencolororange
-        elif color24==3:
-            screencolor24=screencoloryellow
-        elif color24==4:
-            screencolor24=screencolorblue
-        elif color24==5:
-            screencolor24=screencolorgreen
-        elif color24==6:
-            screencolor24=screencolorblack
-        pygame.draw.rect(screen, screencolor24, [380, 200, 80, 80])
-
-        if color25==1:
-            screencolor25=screencolorred
-        elif color25==2:
-            screencolor25=screencolororange
-        elif color25==3:
-            screencolor25=screencoloryellow
-        elif color25==4:
-            screencolor25=screencolorblue
-        elif color25==5:
-            screencolor25=screencolorgreen
-        elif color25==6:
-            screencolor25=screencolorblack
-        pygame.draw.rect(screen, screencolor25, [180, 300, 80, 80])
-        if color26==1:
-            screencolor26=screencolorred
-        elif color26==2:
-            screencolor26=screencolororange
-        elif color26==3:
-            screencolor26=screencoloryellow
-        elif color26==4:
-            screencolor26=screencolorblue
-        elif color26==5:
-            screencolor26=screencolorgreen
-        elif color26==6:
-            screencolor26=screencolorblack
-        pygame.draw.rect(screen, screencolor26, [280, 300, 80, 80])
-        if color27==1:
-            screencolor27=screencolorred
-        elif color27==2:
-            screencolor27=screencolororange
-        elif color27==3:
-            screencolor27=screencoloryellow
-        elif color27==4:
-            screencolor27=screencolorblue
-        elif color27==5:
-            screencolor27=screencolorgreen
-        elif color27==6:
-            screencolor27=screencolorblack
-        pygame.draw.rect(screen, screencolor27, [380, 300, 80, 80])
-
-        sleep(0.01)
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # クリックされた「マウスの座標（位置）」を取得
                 mouse_pos = event.pos
             
                 if is_inside_polygon(mouse_pos, triangle1):
+                    mc.postToChat("turn up at left column")
                     nc1=color19
                     nc4=color22
                     nc7=color25
@@ -536,6 +322,7 @@ def gamestart1(x=1,y=1,z=1,):
 
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle2):
+                    mc.postToChat("turn up at center column")
                     nc2=color20
                     nc5=color23
                     nc8=color26
@@ -566,6 +353,7 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle3):
+                    mc.postToChat("turn up at right column")
                     nc3=color21
                     nc6=color24
                     nc9=color27
@@ -614,6 +402,7 @@ def gamestart1(x=1,y=1,z=1,):
 
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle4):
+                    mc.postToChat("turn left at up column")
                     nc10=color19
                     nc11=color20
                     nc12=color21
@@ -662,6 +451,7 @@ def gamestart1(x=1,y=1,z=1,):
 
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle5):
+                    mc.postToChat("turn left at center column")
                     nc13=color22
                     nc14=color23
                     nc15=color24
@@ -692,6 +482,7 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle6):
+                    mc.postToChat("turn left at down column")
                     nc16=color25
                     nc17=color26
                     nc18=color27
@@ -740,6 +531,7 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle7):
+                    mc.postToChat("turn down at left column")
                     nc1=color54
                     nc4=color51
                     nc7=color48
@@ -787,6 +579,7 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle8):
+                    mc.postToChat("turn down at center column")
                     nc2=color53
                     nc5=color50
                     nc8=color47
@@ -817,6 +610,7 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle9):
+                    mc.postToChat("turn down at right column")
                     nc3=color52
                     nc6=color49
                     nc9=color46
@@ -865,6 +659,7 @@ def gamestart1(x=1,y=1,z=1,):
 
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle10):
+                    mc.postToChat("turn right at up column")
                     nc10=color46
                     nc11=color47
                     nc12=color48
@@ -913,6 +708,7 @@ def gamestart1(x=1,y=1,z=1,):
 
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle11):
+                    mc.postToChat("turn right at center column")
                     nc13=color49
                     nc14=color50
                     nc15=color51
@@ -943,6 +739,7 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
                 elif is_inside_polygon(mouse_pos, triangle12):
+                    mc.postToChat("turn right at down column")
                     nc16=color52
                     nc17=color53
                     nc18=color54
@@ -991,23 +788,216 @@ def gamestart1(x=1,y=1,z=1,):
                     
                     sleep(0.01)
 
+        mc.setBlock(x+3,y,z+3,color1)
+        mc.setBlock(x+2,y,z+3,color2)
+        mc.setBlock(x+1,y,z+3,color3)
+        mc.setBlock(x+3,y,z+2,color4)
+        mc.setBlock(x+2,y,z+2,color5)
+        mc.setBlock(x+1,y,z+2,color6)
+        mc.setBlock(x+3,y,z+1,color7)
+        mc.setBlock(x+2,y,z+1,color8)
+        mc.setBlock(x+1,y,z+1,color9)
+
+        sleep(0.01)  
+
+        mc.setBlock(x+4,y-1,z+3,color10)
+        mc.setBlock(x+4,y-1,z+2,color11)
+        mc.setBlock(x+4,y-1,z+1,color12)
+        mc.setBlock(x+4,y-2,z+3,color13)
+        mc.setBlock(x+4,y-2,z+2,color14)
+        mc.setBlock(x+4,y-2,z+1,color15)
+        mc.setBlock(x+4,y-3,z+3,color16)
+        mc.setBlock(x+4,y-3,z+2,color17)
+        mc.setBlock(x+4,y-3,z+1,color18)
+
+        sleep(0.01)    
+
+        if color19==block1:
+            screencolor19=screencolor1
+        elif color19==block2:
+            screencolor19=screencolor2
+        elif color19==block3:
+            screencolor19=screencolor3
+        elif color19==block4:
+            screencolor19=screencolor4
+        elif color19==block5:
+            screencolor19=screencolor5
+        elif color19==block6:
+            screencolor19=screencolor6
+        mc.setBlock(x+3,y-1,z,color19)
+        pygame.draw.rect(screen, screencolor19, [180, 100, 80, 80])
+
+        if color20==block1:
+            screencolor20=screencolor1
+        elif color20==block2:
+            screencolor20=screencolor2
+        elif color20==block3:
+            screencolor20=screencolor3
+        elif color20==block4:
+            screencolor20=screencolor4
+        elif color20==block5:
+            screencolor20=screencolor5
+        elif color20==block6:
+            screencolor20=screencolor6
+        mc.setBlock(x+2,y-1,z,color20)
+        pygame.draw.rect(screen, screencolor20, [280, 100, 80, 80])
+
+        if color21==block1:
+            screencolor21=screencolor1
+        elif color21==block2:
+            screencolor21=screencolor2
+        elif color21==block3:
+            screencolor21=screencolor3
+        elif color21==block4:
+            screencolor21=screencolor4
+        elif color21==block5:
+            screencolor21=screencolor5
+        elif color21==block6:
+            screencolor21=screencolor6
+        mc.setBlock(x+1,y-1,z,color21)
+        pygame.draw.rect(screen, screencolor21, [380, 100, 80, 80])
+
+        if color22==block1:
+            screencolor22=screencolor1
+        elif color22==block2:
+            screencolor22=screencolor2
+        elif color22==block3:
+            screencolor22=screencolor3
+        elif color22==block4:
+            screencolor22=screencolor4
+        elif color22==block5:
+            screencolor22=screencolor5
+        elif color22==block6:
+            screencolor22=screencolor6
+        mc.setBlock(x+3,y-2,z,color22)
+        pygame.draw.rect(screen, screencolor22, [180, 200, 80, 80])
+
+        screencolor23=0
+        if color23==block1:
+            screencolor23=screencolor1
+        elif color23==block2:
+            screencolor23=screencolor2
+        elif color23==block3:
+            screencolor23=screencolor3
+        elif color23==block4:
+            screencolor23=screencolor4
+        elif color23==block5:
+            screencolor23=screencolor5
+        elif color23==block6:
+            screencolor23=screencolor6
+        mc.setBlock(x+2,y-2,z,color23)
+        pygame.draw.rect(screen, screencolor23, [280, 200, 80, 80])
+
+        if color24==block1:
+            screencolor24=screencolor1
+        elif color24==block2:
+            screencolor24=screencolor2
+        elif color24==block3:
+            screencolor24=screencolor3
+        elif color24==block4:
+            screencolor24=screencolor4
+        elif color24==block5:
+            screencolor24=screencolor5
+        elif color24==block6:
+            screencolor24=screencolor6
+        mc.setBlock(x+1,y-2,z,color24)
+        pygame.draw.rect(screen, screencolor24, [380, 200, 80, 80])
+
+        if color25==block1:
+            screencolor25=screencolor1
+        elif color25==block2:
+            screencolor25=screencolor2
+        elif color25==block3:
+            screencolor25=screencolor3
+        elif color25==block4:
+            screencolor25=screencolor4
+        elif color25==block5:
+            screencolor25=screencolor5
+        elif color25==block6:
+            screencolor25=screencolor6
+        mc.setBlock(x+3,y-3,z,color25)
+        pygame.draw.rect(screen, screencolor25, [180, 300, 80, 80])
+
+        if color26==block1:
+            screencolor26=screencolor1
+        elif color26==block2:
+            screencolor26=screencolor2
+        elif color26==block3:
+            screencolor26=screencolor3
+        elif color26==block4:
+            screencolor26=screencolor4
+        elif color26==block5:
+            screencolor26=screencolor5
+        elif color26==block6:
+            screencolor26=screencolor6
+        mc.setBlock(x+2,y-3,z,color26)
+        pygame.draw.rect(screen, screencolor26, [280, 300, 80, 80])
+
+        if color27==block1:
+            screencolor27=screencolor1
+        elif color27==block2:
+            screencolor27=screencolor2
+        elif color27==block3:
+            screencolor27=screencolor3
+        elif color27==block4:
+            screencolor27=screencolor4
+        elif color27==block5:
+            screencolor27=screencolor5
+        elif color27==block6:
+            screencolor27=screencolor6
+        mc.setBlock(x+1,y-3,z,color27)
+        pygame.draw.rect(screen, screencolor27, [380, 300, 80, 80])
+
+        sleep(0.01)
+
+        mc.setBlock(x,y-1,z+1,color28)
+        mc.setBlock(x,y-1,z+2,color29)
+        mc.setBlock(x,y-1,z+3,color30)
+        mc.setBlock(x,y-2,z+1,color31)
+        mc.setBlock(x,y-2,z+2,color32)
+        mc.setBlock(x,y-2,z+3,color33)
+        mc.setBlock(x,y-3,z+1,color34)
+        mc.setBlock(x,y-3,z+2,color35)
+        mc.setBlock(x,y-3,z+3,color36)
+
+        sleep(0.01)
+
+        mc.setBlock(x+3,y-4,z+1,color37)
+        mc.setBlock(x+2,y-4,z+1,color38)
+        mc.setBlock(x+1,y-4,z+1,color39)
+        mc.setBlock(x+3,y-4,z+2,color40)
+        mc.setBlock(x+2,y-4,z+2,color41)
+        mc.setBlock(x+1,y-4,z+2,color42)
+        mc.setBlock(x+3,y-4,z+3,color43)
+        mc.setBlock(x+2,y-4,z+3,color44)
+        mc.setBlock(x+1,y-4,z+3,color45)
+
+        sleep(0.01)
+
+        mc.setBlock(x+1,y-1,z+4,color46)
+        mc.setBlock(x+2,y-1,z+4,color47)
+        mc.setBlock(x+3,y-1,z+4,color48)
+        mc.setBlock(x+1,y-2,z+4,color49)
+        mc.setBlock(x+2,y-2,z+4,color50)
+        mc.setBlock(x+3,y-2,z+4,color51)
+        mc.setBlock(x+1,y-3,z+4,color52)
+        mc.setBlock(x+2,y-3,z+4,color53)
+        mc.setBlock(x+3,y-3,z+4,color54)
+
+        sleep(0.01)
+
         if color1==color2==color3==color4==color5==color6==color7==color8==color9:
             if color11==color12==color13==color14==color15==color16==color17==color18==color10:
                 if color21==color22==color23==color24==color25==color26==color27==color19==color20:
                     if color31==color32==color33==color34==color35==color36==color28==color29==color30:
                         if color41==color42==color43==color44==color45==color37==color38==color39==color40:
                             if color51==color52==color53==color54==color46==color47==color48==color49==color50:
-                                print("reset")
-                                clearnumber+=1
-                                running=0
+                                print("clear")
+                                mc.postToChat("congratuation")
+                                mc.postToChat("you won")
+                                mc.postToChat("you cleared this cube")
                                 break
         pygame.display.update()
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-    if running==0:
-        gamestart1()
-        running=1
+
+gamestart1(x=-10,y=param.Y_SEA + 10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6)

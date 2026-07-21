@@ -1,0 +1,35 @@
+#pygame画面に三角形を表示
+#三つの頂点を指定
+# points = [(400, 150), (250, 450), (550, 450)]
+#その頂点を結んだ線が囲う面を塗りつぶす
+# pygame. draw. polygon(screen, (0, 255, 0), points)
+
+#たくさんの変数に特定の数の数字を代入
+#文字列を作る（今回は１～６を９つ）
+# numbers = [1, 2, 3, 4, 5, 6] * 9
+#文字列の順番をランダムに変える
+# random. shuffle(numbers)
+#変数を入れるケース（辞書）を作る
+# variables = {}
+#上の文字列の文字数回以下の動作を繰り返す
+# for i in range(54):
+#変数の名前を定義
+# var_name = f"var_{i+1}"
+#変数に代入
+# variables[var_name]= numbers[i] #シャッフルした数字を割り当て
+
+#三角形のクリック判定
+# def is_inside polygon(mouse_pos, polygon points):
+# if len(polygon_points) < 3: return False
+# p = pygame. math. Vector2(mouse_pos)
+# signs =[]
+# for i in range(len(polygon_points)):
+# p1 = pygame. math. Vector2(polygon_points[i])
+# p2 = pygame. math. Vector2(polygon_points[(i + 1) % len(polygon_points)])
+# cross =(p2- p1).cross(p -p1)
+# if cross > 0: signs. append(1)
+# elif cross < 0: signs. append(-1)
+# return not (1 in signs and -1 in signs)
+
+#二つ以上値が入っているとき、一個目の値は[0]
+# color20=line1[0]
