@@ -32,8 +32,6 @@ block6=block.BLACK_WOOL
 screencolor6=(0,0,0)
 block7=block.WHITE_CONCRETE
 
-colors = [block1, block2, block3, block4, block5, block6]*9
-
 pygame.init()
 
 def gamestart1(x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6):
@@ -992,6 +990,11 @@ def gamestart1(x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4
                     if color31==color32==color33==color34==color35==color36==color28==color29==color30:
                         if color41==color42==color43==color44==color45==color37==color38==color39==color40:
                             if color51==color52==color53==color54==color46==color47==color48==color49==color50:
+                                mc.setBlocks(x,y,z,x+4,y-4,z+4,block.GOLD_BLOCK)
+                                mc.setBlocks(x+1,y-1,z+1,x+3,y-3,z+3,block.BARRIER)
+                                mc.setBlocks(x,y-1,z+1,x+4,y-3,z+3,block.DIAMOND_BLOCK)
+                                mc.setBlocks(x+1,y,z+1,x+3,y-4,z+3,block.DIAMOND_BLOCK)
+                                mc.setBlocks(x+1,y-1,z,x+4,y-3,z+4,block.DIAMOND_BLOCK)
                                 print("clear")
                                 mc.postToChat("congratuation")
                                 mc.postToChat("you won")
