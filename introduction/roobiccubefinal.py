@@ -34,7 +34,7 @@ block7=block.WHITE_CONCRETE
 
 pygame.init()
 
-def gamestart1(x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6):
+def gamestart1(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6):
 
     mc.setBlocks(x,y,z,x+4,y-4,z+4,frameblock)
     mc.setBlocks(x+1,y-1,z+1,x+3,y-3,z+3,block.BARRIER)
@@ -1003,4 +1003,4 @@ def gamestart1(x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4
         pygame.display.update()
 
 
-gamestart1(x=-10,y=param.Y_SEA + 10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6)
+gamestart1(mc=mc,x=-10,y=param.Y_SEA + 10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6)
