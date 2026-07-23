@@ -1070,6 +1070,14 @@ block7=block.GOLD_BLOCK
 
 --
 
+<img src="https://raw.githubusercontent.com/harinezumirisu/mc_remote_samples/refs/heads/main/images/cube3-1.png" width="640" alt="cube2-3" title="cube2-3" />
+
+--
+
+<img src="https://raw.githubusercontent.com/harinezumirisu/mc_remote_samples/refs/heads/main/images/cube3-2.png" width="640" alt="cube2-3" title="cube2-3" />
+
+---
+
 # 使い方
 ```python
 import roobiccubefinal as api
@@ -1084,11 +1092,16 @@ mc.setPlayer(param.PLAYER_NAME, PO.x, PO.y, PO.z)
 ```
 これが準備段階として必要です
 ```python
-block1,screencolor1,block2,screencolor2,block3,screencolor3,block4,screencolor4,block5,screencolor5,block6,screencolor6,block7
+block1,screencolor1,block2,screencolor2,block3,screencolor3,block4,screencolor4,block5,screencolor5,block6,screencolor6,block7,blocksize
 ```
 そしてこれらの変数を設定していただけたらなと思います
 そして
 ```python
-api.gamestart1(mc=mc,x=-10,y=param.Y_SEA + 10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6)
+api.gamestart1(mc=mc,x=-10,y=param.Y_SEA + 10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6,blocksize=blocksize)
 ```
 のみです
+
+---
+
+今後の更新予定
+ルービックキューブ5×5バージョンと4×4バージョンも作る予定です
