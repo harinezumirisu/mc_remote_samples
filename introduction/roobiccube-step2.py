@@ -34,11 +34,12 @@ block7=block.WHITE_CONCRETE
 
 pygame.init()
 
-def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6,blocksize=1):
+def gamestart2(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6):
 
-    mc.setBlocks(x,y,z,x+(4+1)*blocksize-1,y-(4+1)*blocksize+1,z+(4+1)*blocksize-1,frameblock)
-    mc.setBlocks(x+1*blocksize,y-1*blocksize,z+1*blocksize,x+(4)*blocksize-1,y-(4)*blocksize+1,z+(4)*blocksize-1,block.BARRIER)
-    mc.setBlock(x+2*blocksize,y-4*blocksize,z-5*blocksize,block.DIAMOND_BLOCK) 
+    mc.setBlocks(x,y,z,x+4,y-4,z+4,frameblock)
+    mc.setBlocks(x+1,y-1,z+1,x+3,y-3,z+3,block.BARRIER)
+    mc.setBlock(x+2,y-4,z-5,block.DIAMOND_BLOCK)
+    mc.postToChat("Let's set roobic cube")
 
     #up surface
     #left,center,right
@@ -785,27 +786,27 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
                     
                     sleep(0.01)
 
-        mc.setBlocks(x+3*blocksize,y,z+3*blocksize,x+(3+1)*blocksize-1,y-(0+1)*blocksize+1,z+(3+1)*blocksize-1,color1)
-        mc.setBlocks(x+2*blocksize,y,z+3*blocksize,x+(2+1)*blocksize-1,y-(0+1)*blocksize+1,z+(3+1)*blocksize-1,color2)
-        mc.setBlocks(x+1*blocksize,y,z+3*blocksize,x+(1+1)*blocksize-1,y-(0+1)*blocksize+1,z+(3+1)*blocksize-1,color3)
-        mc.setBlocks(x+3*blocksize,y,z+2*blocksize,x+(3+1)*blocksize-1,y-(0+1)*blocksize+1,z+(2+1)*blocksize-1,color4)
-        mc.setBlocks(x+2*blocksize,y,z+2*blocksize,x+(2+1)*blocksize-1,y-(0+1)*blocksize+1,z+(2+1)*blocksize-1,color5)
-        mc.setBlocks(x+1*blocksize,y,z+2*blocksize,x+(1+1)*blocksize-1,y-(0+1)*blocksize+1,z+(2+1)*blocksize-1,color6)
-        mc.setBlocks(x+3*blocksize,y,z+1*blocksize,x+(3+1)*blocksize-1,y-(0+1)*blocksize+1,z+(1+1)*blocksize-1,color7)
-        mc.setBlocks(x+2*blocksize,y,z+1*blocksize,x+(2+1)*blocksize-1,y-(0+1)*blocksize+1,z+(1+1)*blocksize-1,color8)
-        mc.setBlocks(x+1*blocksize,y,z+1*blocksize,x+(1+1)*blocksize-1,y-(0+1)*blocksize+1,z+(1+1)*blocksize-1,color9)
+        mc.setBlock(x+3,y,z+3,color1)
+        mc.setBlock(x+2,y,z+3,color2)
+        mc.setBlock(x+1,y,z+3,color3)
+        mc.setBlock(x+3,y,z+2,color4)
+        mc.setBlock(x+2,y,z+2,color5)
+        mc.setBlock(x+1,y,z+2,color6)
+        mc.setBlock(x+3,y,z+1,color7)
+        mc.setBlock(x+2,y,z+1,color8)
+        mc.setBlock(x+1,y,z+1,color9)
 
         sleep(0.01)  
 
-        mc.setBlocks(x+4*blocksize,y-1*blocksize,z+3*blocksize,x+(4+1)*blocksize-1,y-(1+1)*blocksize+1,z+(3+1)*blocksize-1,color10)
-        mc.setBlocks(x+4*blocksize,y-1*blocksize,z+2*blocksize,x+(4+1)*blocksize-1,y-(1+1)*blocksize+1,z+(2+1)*blocksize-1,color11)
-        mc.setBlocks(x+4*blocksize,y-1*blocksize,z+1*blocksize,x+(4+1)*blocksize-1,y-(1+1)*blocksize+1,z+(1+1)*blocksize-1,color12)
-        mc.setBlocks(x+4*blocksize,y-2*blocksize,z+3*blocksize,x+(4+1)*blocksize-1,y-(2+1)*blocksize+1,z+(3+1)*blocksize-1,color13)
-        mc.setBlocks(x+4*blocksize,y-2*blocksize,z+2*blocksize,x+(4+1)*blocksize-1,y-(2+1)*blocksize+1,z+(2+1)*blocksize-1,color14)
-        mc.setBlocks(x+4*blocksize,y-2*blocksize,z+1*blocksize,x+(4+1)*blocksize-1,y-(2+1)*blocksize+1,z+(1+1)*blocksize-1,color15)
-        mc.setBlocks(x+4*blocksize,y-3*blocksize,z+3*blocksize,x+(4+1)*blocksize-1,y-(3+1)*blocksize+1,z+(3+1)*blocksize-1,color16)
-        mc.setBlocks(x+4*blocksize,y-3*blocksize,z+2*blocksize,x+(4+1)*blocksize-1,y-(3+1)*blocksize+1,z+(2+1)*blocksize-1,color17)
-        mc.setBlocks(x+4*blocksize,y-3*blocksize,z+1*blocksize,x+(4+1)*blocksize-1,y-(3+1)*blocksize+1,z+(1+1)*blocksize-1,color18)
+        mc.setBlock(x+4,y-1,z+3,color10)
+        mc.setBlock(x+4,y-1,z+2,color11)
+        mc.setBlock(x+4,y-1,z+1,color12)
+        mc.setBlock(x+4,y-2,z+3,color13)
+        mc.setBlock(x+4,y-2,z+2,color14)
+        mc.setBlock(x+4,y-2,z+1,color15)
+        mc.setBlock(x+4,y-3,z+3,color16)
+        mc.setBlock(x+4,y-3,z+2,color17)
+        mc.setBlock(x+4,y-3,z+1,color18)
 
         sleep(0.01)    
 
@@ -821,7 +822,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor19=screencolor5
         elif color19==block6:
             screencolor19=screencolor6
-        mc.setBlocks(x+3*blocksize,y-1*blocksize,z,x+(3+1)*blocksize-1,y-(1+1)*blocksize+1,z+(0+1)*blocksize-1,color19)
+        mc.setBlock(x+3,y-1,z,color19)
         pygame.draw.rect(screen, screencolor19, [180, 100, 80, 80])
 
         if color20==block1:
@@ -836,7 +837,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor20=screencolor5
         elif color20==block6:
             screencolor20=screencolor6
-        mc.setBlocks(x+2*blocksize,y-1*blocksize,z,x+(2+1)*blocksize-1,y-(1+1)*blocksize+1,z+(0+1)*blocksize-1,color20)
+        mc.setBlock(x+2,y-1,z,color20)
         pygame.draw.rect(screen, screencolor20, [280, 100, 80, 80])
 
         if color21==block1:
@@ -851,7 +852,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor21=screencolor5
         elif color21==block6:
             screencolor21=screencolor6
-        mc.setBlocks(x+1*blocksize,y-1*blocksize,z,x+(1+1)*blocksize-1,y-(1+1)*blocksize+1,z+(0+1)*blocksize-1,color21)
+        mc.setBlock(x+1,y-1,z,color21)
         pygame.draw.rect(screen, screencolor21, [380, 100, 80, 80])
 
         if color22==block1:
@@ -866,7 +867,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor22=screencolor5
         elif color22==block6:
             screencolor22=screencolor6
-        mc.setBlocks(x+3*blocksize,y-2*blocksize,z,x+(3+1)*blocksize-1,y-(2+1)*blocksize+1,z+(0+1)*blocksize-1,color22)
+        mc.setBlock(x+3,y-2,z,color22)
         pygame.draw.rect(screen, screencolor22, [180, 200, 80, 80])
 
         screencolor23=0
@@ -882,7 +883,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor23=screencolor5
         elif color23==block6:
             screencolor23=screencolor6
-        mc.setBlocks(x+2*blocksize,y-2*blocksize,z,x+(2+1)*blocksize-1,y-(2+1)*blocksize+1,z+(0+1)*blocksize-1,color23)
+        mc.setBlock(x+2,y-2,z,color23)
         pygame.draw.rect(screen, screencolor23, [280, 200, 80, 80])
 
         if color24==block1:
@@ -897,7 +898,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor24=screencolor5
         elif color24==block6:
             screencolor24=screencolor6
-        mc.setBlocks(x+1*blocksize,y-2*blocksize,z,x+(1+1)*blocksize-1,y-(2+1)*blocksize+1,z+(0+1)*blocksize-1,color24)
+        mc.setBlock(x+1,y-2,z,color24)
         pygame.draw.rect(screen, screencolor24, [380, 200, 80, 80])
 
         if color25==block1:
@@ -912,7 +913,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor25=screencolor5
         elif color25==block6:
             screencolor25=screencolor6
-        mc.setBlocks(x+3*blocksize,y-3*blocksize,z,x+(3+1)*blocksize-1,y-(3+1)*blocksize+1,z+(0+1)*blocksize-1,color25)
+        mc.setBlock(x+3,y-3,z,color25)
         pygame.draw.rect(screen, screencolor25, [180, 300, 80, 80])
 
         if color26==block1:
@@ -927,7 +928,7 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor26=screencolor5
         elif color26==block6:
             screencolor26=screencolor6
-        mc.setBlocks(x+2*blocksize,y-3*blocksize,z,x+(2+1)*blocksize-1,y-(3+1)*blocksize+1,z+(0+1)*blocksize-1,color26)
+        mc.setBlock(x+2,y-3,z,color26)
         pygame.draw.rect(screen, screencolor26, [280, 300, 80, 80])
 
         if color27==block1:
@@ -942,44 +943,44 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
             screencolor27=screencolor5
         elif color27==block6:
             screencolor27=screencolor6
-        mc.setBlocks(x+1*blocksize,y-3*blocksize,z,x+(1+1)*blocksize-1,y-(3+1)*blocksize+1,z+(0+1)*blocksize-1,color27)
+        mc.setBlock(x+1,y-3,z,color27)
         pygame.draw.rect(screen, screencolor27, [380, 300, 80, 80])
 
         sleep(0.01)
 
-        mc.setBlocks(x,y-1*blocksize,z+1*blocksize,x+(0+1)*blocksize-1,y-(1+1)*blocksize+1,z+(1+1)*blocksize-1,color28)
-        mc.setBlocks(x,y-1*blocksize,z+2*blocksize,x+(0+1)*blocksize-1,y-(1+1)*blocksize+1,z+(2+1)*blocksize-1,color29)
-        mc.setBlocks(x,y-1*blocksize,z+3*blocksize,x+(0+1)*blocksize-1,y-(1+1)*blocksize+1,z+(3+1)*blocksize-1,color30)
-        mc.setBlocks(x,y-2*blocksize,z+1*blocksize,x+(0+1)*blocksize-1,y-(2+1)*blocksize+1,z+(1+1)*blocksize-1,color31)
-        mc.setBlocks(x,y-2*blocksize,z+2*blocksize,x+(0+1)*blocksize-1,y-(2+1)*blocksize+1,z+(2+1)*blocksize-1,color32)
-        mc.setBlocks(x,y-2*blocksize,z+3*blocksize,x+(0+1)*blocksize-1,y-(2+1)*blocksize+1,z+(3+1)*blocksize-1,color33)
-        mc.setBlocks(x,y-3*blocksize,z+1*blocksize,x+(0+1)*blocksize-1,y-(3+1)*blocksize+1,z+(1+1)*blocksize-1,color34)
-        mc.setBlocks(x,y-3*blocksize,z+2*blocksize,x+(0+1)*blocksize-1,y-(3+1)*blocksize+1,z+(2+1)*blocksize-1,color35)
-        mc.setBlocks(x,y-3*blocksize,z+2*blocksize,x+(0+1)*blocksize-1,y-(3+1)*blocksize+1,z+(3+1)*blocksize-1,color36)
+        mc.setBlock(x,y-1,z+1,color28)
+        mc.setBlock(x,y-1,z+2,color29)
+        mc.setBlock(x,y-1,z+3,color30)
+        mc.setBlock(x,y-2,z+1,color31)
+        mc.setBlock(x,y-2,z+2,color32)
+        mc.setBlock(x,y-2,z+3,color33)
+        mc.setBlock(x,y-3,z+1,color34)
+        mc.setBlock(x,y-3,z+2,color35)
+        mc.setBlock(x,y-3,z+3,color36)
 
         sleep(0.01)
-        
-        mc.setBlocks(x+3*blocksize,y-4*blocksize,z+1*blocksize,x+(3+1)*blocksize-1,y-(4+1)*blocksize+1,z+(1+1)*blocksize-1,color37)
-        mc.setBlocks(x+2*blocksize,y-4*blocksize,z+1*blocksize,x+(2+1)*blocksize-1,y-(4+1)*blocksize+1,z+(1+1)*blocksize-1,color38)
-        mc.setBlocks(x+1*blocksize,y-4*blocksize,z+1*blocksize,x+(1+1)*blocksize-1,y-(4+1)*blocksize+1,z+(1+1)*blocksize-1,color39)
-        mc.setBlocks(x+3*blocksize,y-4*blocksize,z+2*blocksize,x+(3+1)*blocksize-1,y-(4+1)*blocksize+1,z+(2+1)*blocksize-1,color40)
-        mc.setBlocks(x+2*blocksize,y-4*blocksize,z+2*blocksize,x+(2+1)*blocksize-1,y-(4+1)*blocksize+1,z+(2+1)*blocksize-1,color41)
-        mc.setBlocks(x+1*blocksize,y-4*blocksize,z+2*blocksize,x+(1+1)*blocksize-1,y-(4+1)*blocksize+1,z+(2+1)*blocksize-1,color42)
-        mc.setBlocks(x+3*blocksize,y-4*blocksize,z+3*blocksize,x+(3+1)*blocksize-1,y-(4+1)*blocksize+1,z+(3+1)*blocksize-1,color43)
-        mc.setBlocks(x+2*blocksize,y-4*blocksize,z+3*blocksize,x+(2+1)*blocksize-1,y-(4+1)*blocksize+1,z+(3+1)*blocksize-1,color44)
-        mc.setBlocks(x+1*blocksize,y-4*blocksize,z+3*blocksize,x+(1+1)*blocksize-1,y-(4+1)*blocksize+1,z+(3+1)*blocksize-1,color45)
+
+        mc.setBlock(x+3,y-4,z+1,color37)
+        mc.setBlock(x+2,y-4,z+1,color38)
+        mc.setBlock(x+1,y-4,z+1,color39)
+        mc.setBlock(x+3,y-4,z+2,color40)
+        mc.setBlock(x+2,y-4,z+2,color41)
+        mc.setBlock(x+1,y-4,z+2,color42)
+        mc.setBlock(x+3,y-4,z+3,color43)
+        mc.setBlock(x+2,y-4,z+3,color44)
+        mc.setBlock(x+1,y-4,z+3,color45)
 
         sleep(0.01)
-        
-        mc.setBlocks(x+1*blocksize,y-1*blocksize,z+4*blocksize,x+(1+1)*blocksize-1,y-(1+1)*blocksize+1,z+(4+1)*blocksize-1,color46)
-        mc.setBlocks(x+2*blocksize,y-1*blocksize,z+4*blocksize,x+(2+1)*blocksize-1,y-(1+1)*blocksize+1,z+(4+1)*blocksize-1,color47)
-        mc.setBlocks(x+3*blocksize,y-1*blocksize,z+4*blocksize,x+(3+1)*blocksize-1,y-(1+1)*blocksize+1,z+(4+1)*blocksize-1,color48)
-        mc.setBlocks(x+1*blocksize,y-2*blocksize,z+4*blocksize,x+(1+1)*blocksize-1,y-(2+1)*blocksize+1,z+(4+1)*blocksize-1,color49)
-        mc.setBlocks(x+2*blocksize,y-2*blocksize,z+4*blocksize,x+(2+1)*blocksize-1,y-(2+1)*blocksize+1,z+(4+1)*blocksize-1,color50)
-        mc.setBlocks(x+3*blocksize,y-2*blocksize,z+4*blocksize,x+(3+1)*blocksize-1,y-(2+1)*blocksize+1,z+(4+1)*blocksize-1,color51)
-        mc.setBlocks(x+1*blocksize,y-3*blocksize,z+4*blocksize,x+(1+1)*blocksize-1,y-(3+1)*blocksize+1,z+(4+1)*blocksize-1,color52)
-        mc.setBlocks(x+2*blocksize,y-3*blocksize,z+4*blocksize,x+(2+1)*blocksize-1,y-(3+1)*blocksize+1,z+(4+1)*blocksize-1,color53)
-        mc.setBlocks(x+3*blocksize,y-3*blocksize,z+4*blocksize,x+(3+1)*blocksize-1,y-(3+1)*blocksize+1,z+(4+1)*blocksize-1,color54)
+
+        mc.setBlock(x+1,y-1,z+4,color46)
+        mc.setBlock(x+2,y-1,z+4,color47)
+        mc.setBlock(x+3,y-1,z+4,color48)
+        mc.setBlock(x+1,y-2,z+4,color49)
+        mc.setBlock(x+2,y-2,z+4,color50)
+        mc.setBlock(x+3,y-2,z+4,color51)
+        mc.setBlock(x+1,y-3,z+4,color52)
+        mc.setBlock(x+2,y-3,z+4,color53)
+        mc.setBlock(x+3,y-3,z+4,color54)
 
         sleep(0.01)
 
@@ -989,11 +990,11 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
                     if color31==color32==color33==color34==color35==color36==color28==color29==color30:
                         if color41==color42==color43==color44==color45==color37==color38==color39==color40:
                             if color51==color52==color53==color54==color46==color47==color48==color49==color50:
-                                mc.setBlocks(x,y,z,x+(4+1)*blocksize-1,y-(4+1)*blocksize+1,z+(4+1)*blocksize-1,block.GOLD_BLOCK)
-                                mc.setBlocks(x+1*blocksize,y-1*blocksize,z+1*blocksize,x+(4)*blocksize-1,y-(4)*blocksize+1,z+(4)*blocksize-1,block.BARRIER)
-                                mc.setBlocks(x,y-1*blocksize,z+1*blocksize,x+(4+1)*blocksize-1,y-(3+1)*blocksize+1,z+(3+1)*blocksize-1,block.DIAMOND_BLOCK)
-                                mc.setBlocks(x+1*blocksize,y,z+1*blocksize,x+(3+1)*blocksize-1,y-(4+1)*blocksize+1,z+(3+1)*blocksize-1,block.DIAMOND_BLOCK)
-                                mc.setBlocks(x+1*blocksize,y-1*blocksize,z,x+(4+1)*blocksize-1,y-(3+1)*blocksize+1,z+(4+1)*blocksize-1,block.DIAMOND_BLOCK)
+                                mc.setBlocks(x,y,z,x+4,y-4,z+4,block.GOLD_BLOCK)
+                                mc.setBlocks(x+1,y-1,z+1,x+3,y-3,z+3,block.BARRIER)
+                                mc.setBlocks(x,y-1,z+1,x+4,y-3,z+3,block.DIAMOND_BLOCK)
+                                mc.setBlocks(x+1,y,z+1,x+3,y-4,z+3,block.DIAMOND_BLOCK)
+                                mc.setBlocks(x+1,y-1,z,x+4,y-3,z+4,block.DIAMOND_BLOCK)
                                 print("clear")
                                 mc.postToChat("congratuation")
                                 mc.postToChat("you won")
@@ -1001,4 +1002,5 @@ def gamestart(mc=mc,x=-10,y=10,z=-10,block1=block1,block2=block2,block3=block3,b
                                 break
         pygame.display.update()
 
-gamestart(mc=mc,x=-10,y=param.Y_SEA + 20,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6,blocksize=2)
+
+gamestart2(mc=mc,x=-10,y=param.Y_SEA + 10,z=-10,block1=block1,block2=block2,block3=block3,block4=block4,block5=block5,block6=block6,frameblock=block7,screencolor1=screencolor1,screencolor2=screencolor2,screencolor3=screencolor3,screencolor4=screencolor4,screencolor5=screencolor5,screencolor6=screencolor6)
